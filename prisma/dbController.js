@@ -1,4 +1,9 @@
-const { PrismaClient } = require('@prisma/client')
+const {
+    PrismaClient
+} = require('@prisma/client');
+const {
+    all
+} = require('../router/mainRoute');
 
 const prisma = new PrismaClient()
 
@@ -13,12 +18,19 @@ const saveData = async (data) => {
     }
 }
 
-saveData()
-    .catch((e) => {
-        throw e
-    })
-    .finally(async () => {
-        await prisma.$disconnect()
-    })
+const getData = async () => {
 
-module.exports = saveData
+    return await prisma.cities.findMany()
+}
+
+const removeAllCities = async () => {
+    return await prisma.cities.deleteMany()
+}
+
+const queries = {
+    saveData,
+    getData,
+    removeAllCities
+}
+
+module.exports = queries

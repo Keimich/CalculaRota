@@ -30,12 +30,44 @@
                     </div>
                 </div>
                 <div class="row flex-column">
-                    <div class="col"><input id="cityName" type="text" placeholder="Nome da cidade"></div>
-                    <div class="col my-3"><input id="cityLat" type="number" placeholder="Latitude"></div>
-                    <div class="col"><input id="cityLng" type="number" placeholder="Longitude"></div>
-                    <div class="col d-flex justify-content-center mt-3">
-                        <button id="registerCity" type="button" class="btn btn-primary"
+                    <div class="col d-flex justify-content-center"><input id="cityName" type="text"
+                            placeholder="Nome da cidade"></div>
+                    <div class="col my-3 d-flex justify-content-center"><input id="cityLat" type="number"
+                            placeholder="Latitude"></div>
+                    <div class="col d-flex justify-content-center"><input id="cityLng" type="number"
+                            placeholder="Longitude"></div>
+                    <div class="col d-flex flex-column justify-content-center">
+                        <button id="registerCity" type="button" class="btn btn-primary my-3"
                             onclick="registerCity()">Cadastrar!</button>
+                        <button id="removeAllCities" type="button" class="btn btn-danger"
+                            onclick="removeAllCities()">Remover todas as cidades</button>
+                    </div>
+                </div>
+            </section>
+            <section id="calculateRoute" class="d-flex flex-column align-items-center justify-content-center">
+                <div class="row">
+                    <div class="col">
+                        <h5>Calcular rota</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 d-flex align-items-center">
+                        <span class="mx-1">Origem: </span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Origem</option>
+                            <% for(n in dbData) { %>
+                            <option value=<%= dbData[n].id %>><%= dbData[n].name %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col-6 d-flex align-items-center">
+                        <span class="mx-1">Destino: </span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Destino</option>
+                            <% for(n in dbData) { %>
+                            <option value=<%= dbData[n].id %>><%= dbData[n].name %></option>
+                            <% } %>
+                        </select>
                     </div>
                 </div>
             </section>
