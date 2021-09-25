@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Calucula Rota</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/bootstrap.css'>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src='./js/bootstrap.js'></script>
+    <script src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Calcula Rota</span>
+    </div>
+</nav>
+
 <body>
-    
+    <main>
+        <div class="container">
+            <section id="cityRegistration" class="d-flex flex-column align-items-center justify-content-center my-5">
+                <div class="row">
+                    <div class="col">
+                        <h5>Cadastro de cidade</h5>
+                    </div>
+                </div>
+                <div class="row flex-column">
+                    <div class="col"><input id="cityName" type="text" placeholder="Nome da cidade"></div>
+                    <div class="col my-3"><input id="cityLat" type="number" placeholder="Latitude"></div>
+                    <div class="col"><input id="cityLng" type="number" placeholder="Longitude"></div>
+                    <div class="col d-flex justify-content-center mt-3">
+                        <button id="registerCity" type="button" class="btn btn-primary"
+                            onclick="registerCity()">Cadastrar!</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 </body>
+<footer>
+
+</footer>
+
 </html>
