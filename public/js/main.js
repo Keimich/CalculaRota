@@ -1,12 +1,12 @@
 registerCity = () => {
     const htmlEls = {
-        cityName: document.getElementById('cityName').value,
-        cityLat: document.getElementById('cityLat').value,
-        cityLng: document.getElementById('cityLng').value,
+        cityName: document.getElementById('cityName'),
+        cityLat: document.getElementById('cityLat'),
+        cityLng: document.getElementById('cityLng'),
         registerCityBtn: document.getElementById('registerCity')
     }
 
-    if (htmlEls.cityName == '' || htmlEls.cityLat == '' || htmlEls.cityLng == '') {
+    if (htmlEls.cityName.value == '' || htmlEls.cityLat.value == '' || htmlEls.cityLng.value == '') {
         alert('Verifique se vc preencheu todos os campos!')
     } else {
         htmlEls.registerCityBtn.classList.add('disabled')
@@ -26,9 +26,15 @@ registerCity = () => {
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            if (response.status == 200) {
+                htmlEls.cityName.value = ''
+                htmlEls.cityLat.value = ''
+                htmlEls.cityLng.value = ''
+                htmlEls.registerCityBtn.classList.remove('disabled')
+                alert('Cidade cadastrada!')
+            } else {
+                alert('Erro ao cadastrar a cidade, tente novamente!')
+            }
         });
     }
-
-    console.log(htmlEls)
 }

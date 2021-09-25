@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express();
 const bodyParser = require('body-parser');
+const saveData = require('../prisma/dbController');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -16,10 +17,17 @@ router.get('/', (req, res) => {
     res.render('home')
 });
 
-router.post('/registerCity', (req, res)=>{
+router.post('/registerCity', (req, res) => {
 
-    console.log(req.body)
-    res.json({'status': 200})
+    const data = {
+        name: req.body.cityName,
+        lat: req.body.cityLat,
+        lng: req.body.cityLng
+    }
+    saveData(data)
+    res.json({
+        'status': 200
+    })
 })
 
 module.exports = router;
